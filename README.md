@@ -106,6 +106,12 @@ Make sure the following software is installed:
 
 MongoDB Compass is optional but useful for inspecting the database.
 
+### Troubleshooting
+
+- If MongoDB connection fails, check that the MongoDB service is running.
+- If port 5173 is occupied, use the alternative URL displayed by Vite.
+- If login fails, check the university email format and password.
+
 ### Step 1: Clone the Repository
 
 Open PowerShell and run:
