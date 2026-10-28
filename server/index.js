@@ -1,0 +1,1 @@
+require('dotenv').config();const mongoose=require('mongoose');const app=require('./app');const port=process.env.PORT||5000;mongoose.connect(process.env.MONGO_URI||'mongodb://127.0.0.1:27017/campus_lost_found').then(()=>app.listen(port,()=>console.log(`API: http://localhost:${port}`))).catch(err=>{console.error(err);process.exit(1)});

@@ -1,0 +1,19 @@
+@startuml
+class Item {+title: String
++type: String
++category: String
++status: String}
+class Claim {+itemId: ObjectId
++claimantName: String
++reason: String
++status: String}
+class ItemFactory {+createItem(data)}
+class ItemAdapter {+toPublicItem(item)}
+class SearchStrategy {+buildQuery(filters)}
+class ClaimService {+decideClaim(claimId, decision)}
+Item "1" -- "0..*" Claim
+ItemFactory ..> Item
+ItemAdapter ..> Item
+SearchStrategy ..> Item
+ClaimService ..> Claim
+@enduml

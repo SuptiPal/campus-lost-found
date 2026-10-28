@@ -1,0 +1,1 @@
+function toPublicItem(item){const i=item.toObject?item.toObject():item;return {id:String(i._id||i.id),title:i.title,type:i.type,category:i.category,location:i.location,description:i.description,contactName:i.contactName,status:i.status,ownerId:i.ownerId?String(i.ownerId):null,createdAt:i.createdAt};}module.exports={toPublicItem};
