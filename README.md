@@ -16,3 +16,12 @@ Registration/login, browse/search/filter, post items, my listings, submit claims
 
 ## Assignment
 Includes Factory, Adapter and Strategy patterns, PlantUML source under `docs`, and GitHub Actions workflow. Real PR reviews, merge-conflict evidence, CI run and screenshots must be performed in your GitHub repository.
+
+## Project Objectives
+
+The RUET Campus Lost and Found Portal helps students report
+lost or found belongings, search existing listings, and submit
+ownership claims.
+
+The application uses MongoDB, Express.js, React, and Node.js
+to provide a centralized platform for managing campus items.
