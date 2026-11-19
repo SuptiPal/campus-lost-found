@@ -260,13 +260,83 @@ The development workflow includes:
 
 Since this is an individual assignment, the development and review activities are performed by the project author.
 
-## UML and Documentation
+### UML and Documentation
 
-The project includes PlantUML source files in the `docs` directory.
 
-These diagrams help document the system's structure and relationships.
+## UML Class Diagram
 
-The project report covers requirements, design decisions, implementation, testing, and reflection on the development process.
+The following UML class diagram represents the main entities, their relationships, and the design pattern components of the RUET Campus Lost & Found system.
+
+```mermaid
+classDiagram
+    direction TB
+
+    class User {
+        +String name
+        +String email
+        +String passwordHash
+    }
+
+    class Item {
+        +String title
+        +String type
+        +String category
+        +String location
+        +ObjectId ownerId
+        +String status
+    }
+
+    class Claim {
+        +ObjectId itemId
+        +ObjectId claimantId
+        +String claimantName
+        +String reason
+        +String status
+    }
+
+    class ItemFactory {
+        +createItem(data)
+    }
+
+    class ItemAdapter {
+        +toPublicItem(item)
+    }
+
+    class SearchStrategies {
+        +buildQuery(filters)
+    }
+
+    class ClaimService {
+        +decideClaim(claimId, decision)
+    }
+
+    User "1" --> "0..*" Item : posts
+    User "1" --> "0..*" Claim : submits
+    Item "1" --> "0..*" Claim : receives
+
+    ItemFactory ..> Item : creates
+    ItemAdapter ..> Item : formats
+    SearchStrategies ..> Item : queries
+    ClaimService ..> Claim : updates
+```
+
+### UML Explanation
+
+- **User:** Stores registered user information.
+- **Item:** Represents lost and found belongings.
+- **Claim:** Stores ownership claims submitted by users.
+- **ItemFactory:** Creates item objects (Factory Pattern).
+- **ItemAdapter:** Formats item data (Adapter Pattern).
+- **SearchStrategies:** Builds search queries (Strategy Pattern).
+- **ClaimService:** Handles claim approval and rejection.
+
+### Relationships
+
+- One user can post multiple items.
+- One user can submit multiple claims.
+- One item can receive multiple claims.
+- Dashed arrows represent dependencies between components.
+
 
 ## Current Limitations
 
